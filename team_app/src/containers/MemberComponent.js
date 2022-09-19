@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from "react-redux";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid } from '@mui/material';
+
 
 const MemberComponent = () => {
 
@@ -13,39 +14,43 @@ const MemberComponent = () => {
         const { id, first_name, last_name, email, gender, avatar, domain, available } = member;
         return (
 
-
-            <Card sx={{ maxWidth: 345 }} key={id}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="100"
-                        image={avatar}
-                        alt="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {first_name}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                           
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-
-
-
+            <Grid  item sm={3} key={id}>
+                <Card >
+                    <CardActionArea>
+                        <CardMedia
+                            component="img"
+                            height="100"
+                            image={avatar}
+                            alt="green iguana"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="span">
+                                {first_name + " " + last_name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Email Id:{email}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Gender:{gender}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Domain: {domain}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Available: {available ? "Yes" : "No"}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </Grid>
         )
     })
 
 
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid item xs={3} md={2.4}>
-
-                    {renderList}
-                </Grid>
+            <Grid container spacing={4}>
+                {renderList}
             </Grid>
         </>
     )
