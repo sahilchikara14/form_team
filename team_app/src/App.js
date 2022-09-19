@@ -9,7 +9,7 @@ function App() {
     <div className="App">
     
     <Router>
-    <h1>Team</h1>
+    <h1 style={{fontSize:"60px"}}>Team</h1>
    
     <Routes>
      <Route exact path='/'  element={<MemberList/>}/>

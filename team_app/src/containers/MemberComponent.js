@@ -19,9 +19,8 @@ const MemberComponent = () => {
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="100"
                             image={avatar}
-                            alt="green iguana"
+                            alt={first_name}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="span">

@@ -1,4 +1,5 @@
 export const ActionTypes = {
     SET_MEMBERS: "SET_MEMBERS",
+    SEARCH_MEMBERS:"SEARCH_MEMBERS",
     SELECTED_MEMBERS: "SELECTED_MEMBERS",
   };

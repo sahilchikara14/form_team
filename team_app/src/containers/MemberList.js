@@ -1,16 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Data from '../mockData/data.json'
 import { useDispatch, useSelector } from "react-redux";
 import MemberComponent from './MemberComponent';
 import { setMembers } from '../redux/actions/MemberAction';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import "./MemberList.css";
 
 
 const MemberList = () => {
 
+    const [text,setText]=useState("")
+
     const members = useSelector((state) => state);
     const dispatch = useDispatch()
+
+    const handleChange=(e)=>{
+        setText(e.target.value)
+    }
+
+    const showText=(e)=>{
+        console.log(text)
+    }
 
 
     const fetchMembers = () => {
@@ -25,11 +34,16 @@ const MemberList = () => {
 
     return (
         <>
-            <MemberComponent />
-            <Stack spacing={2}>
-             <Pagination count={10} />
+     	<div className="search_wrap search_wrap_1">
+			<div className="search_box">
+				<input type="text" onChange={(e)=>handleChange(e)}   className="input" placeholder="search..."/>
+				
+					<button onClick={(e)=>showText(e)} className="btn btn_common" >Search</button>
+				
+			</div>
+		</div>
 
-            </Stack>
+     <MemberComponent />
         </>
 
     )
